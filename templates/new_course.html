@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Nouveau cours - ILIA Campus{% endblock %}
+{% block content %}
+  <h1>Nouveau cours</h1>
+  <form method="post">
+    <label for="title">Intitulé</label>
+    <input id="title" name="title" value="{{ request.form.get('title', '') }}">
+    <label for="semester">Semestre</label>
+    <input id="semester" name="semester" value="{{ request.form.get('semester', '') }}">
+    <button type="submit">Créer</button>
+  </form>
+{% endblock %}

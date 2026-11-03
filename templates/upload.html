@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Ajouter un support - ILIA Campus{% endblock %}
+{% block content %}
+  <h1>Ajouter un support à {{ course.title }}</h1>
+  <form method="post" enctype="multipart/form-data">
+    <label for="support">Fichier PDF (5 Mo maximum)</label>
+    <input id="support" type="file" name="support" accept=".pdf" required>
+    <button type="submit">Téléverser</button>
+  </form>
+{% endblock %}
