@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} - ILIA Campus{% endblock %}
+{% block content %}
+  <h1>{{ course.title }}</h1>
+  <p>Semestre : {{ course.semester }}</p>
+  <h2>Supports</h2>
+  {% if course.get("supports") %}
+    <ul>
+    {% for filename in course.get("supports") %}
+      <li><a href="{{ url_for('prof.download_support', course_id=course.id, filename=filename) }}">{{ filename }}</a></li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun support.</p>
+  {% endif %}
+  {% if session.get("role") == "professeur" %}
+    <a href="{{ url_for('prof.upload_support', course_id=course.id) }}">Ajouter un support PDF</a>
+  {% endif %}
+{% endblock %}

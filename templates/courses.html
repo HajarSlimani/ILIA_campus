@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Cours - ILIA Campus{% endblock %}
+{% block content %}
+  <h1>Liste des cours</h1>
+  {% if courses %}
+    <ul>
+    {% for course in courses %}
+      <li>
+        <a href="{{ url_for('prof.course_detail', course_id=course.id) }}">{{ course.title }}</a>
+        - {{ course.semester }}
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun cours pour le moment.</p>
+  {% endif %}
+{% endblock %}
